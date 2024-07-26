@@ -1,7 +1,4 @@
-
-
 package com.demo.creditlimit.scheduler;
-
 import com.demo.creditlimit.service.CreditLimitService;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.scheduling.annotation.Scheduled;

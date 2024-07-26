@@ -1,5 +1,3 @@
-
-
 package com.demo.creditlimit.dao.po;
 
 import lombok.Data;
