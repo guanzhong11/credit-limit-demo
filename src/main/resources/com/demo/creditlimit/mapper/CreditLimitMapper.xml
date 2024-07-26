@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+  ~ CreditLimitMapper.xml
+  ~ Copyright 2024 Qunhe Tech, all rights reserved.
+  ~ Qunhe PROPRIETARY/CONFIDENTIAL, any form of usage is subject to approval.
+  -->
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.demo.creditlimit.dao.mapper.CreditLimitMapper">
+
+    <insert id="addCreditLimit">
+        INSERT INTO credit_limit(user_id, type, amount)
+        VALUES (#{userId}, #{type}, #{amount})
+    </insert>
+
+    <update id="updateUserCreditLimit">
+        UPDATE credit_limit
+        SET amount = #{amount}
+        WHERE user_id = #{userId} AND type = #{type}
+    </update>
+
+    <select id="getByUserIdAndType" resultType="com.demo.creditlimit.dao.po.CreditLimitPo">
+        SELECT id, user_id, type, amount, deleted, created, lastmodified
+        FROM credit_limit
+        WHERE
+            user_id = #{userId}
+            AND type = #{type}
+            AND deleted = 0
+    </select>
+
+</mapper>
