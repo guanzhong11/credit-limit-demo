@@ -1,9 +1,3 @@
-/*
- * CreditLimitServiceTest.java
- * Copyright 2024 Qunhe Tech, all rights reserved.
- * Qunhe PROPRIETARY/CONFIDENTIAL, any form of usage is subject to approval.
- */
-
 package com.demo.creditlimit;
 
 import com.demo.creditlimit.common.RedisLock;
@@ -17,8 +11,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
-
-import java.lang.ref.PhantomReference;
 
 import static org.assertj.core.api.Java6Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -73,7 +65,6 @@ public class CreditLimitServiceTest {
     }
 
 
-
     @Test
     public void testInitUserCreditLimitNormal() throws CustomException {
         given(redisLock.lock(anyString())).willReturn(true);
@@ -101,12 +92,12 @@ public class CreditLimitServiceTest {
     @Test
     public void testInitUserCreditLimitAlreadyInit() throws CustomException {
         given(redisLock.lock(anyString())).willReturn(true);
-        given(creditLimitMapper.getByUserIdAndType(anyLong(), anyInt())).willReturn(new CreditLimitPo());
+        given(creditLimitMapper.getByUserIdAndType(anyLong(), anyInt())).willReturn(
+                new CreditLimitPo());
 
         assertThrows(CustomException.class,
                 () -> creditLimitService.initUserCreditLimit(USER_ID, TYPE));
     }
-
 
 
     @Test
@@ -130,6 +121,6 @@ public class CreditLimitServiceTest {
         given(creditLimitMapper.getByUserIdAndType(anyLong(), anyInt())).willReturn(null);
 
         assertThrows(CustomException.class,
-                () -> creditLimitService.incrUserCreditLimit(USER_ID, TYPE,1));
+                () -> creditLimitService.incrUserCreditLimit(USER_ID, TYPE, 1));
     }
 }

@@ -1,8 +1,4 @@
-/*
- * CreditLimitServiceImpl.java
- * Copyright 2024 Qunhe Tech, all rights reserved.
- * Qunhe PROPRIETARY/CONFIDENTIAL, any form of usage is subject to approval.
- */
+
 
 package com.demo.creditlimit.service.impl;
 
@@ -38,7 +34,7 @@ public class CreditLimitServiceImpl implements CreditLimitService {
      * 权限校验预留方法。
      * 校验用户是否存在，是否有权限等。
      */
-    private boolean checkAuth() throws CustomException{
+    private boolean checkAuth() throws CustomException {
         return true;
     }
 

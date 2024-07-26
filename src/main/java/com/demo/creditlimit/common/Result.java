@@ -1,8 +1,3 @@
-/*
- * Result.java
- * Copyright 2024 Qunhe Tech, all rights reserved.
- * Qunhe PROPRIETARY/CONFIDENTIAL, any form of usage is subject to approval.
- */
 
 package com.demo.creditlimit.common;
 
@@ -24,7 +19,6 @@ public class Result<T> {
     public static final int OK_CODE = 1;
 
     public static final int GENERAL_ERROR_CODE = -1;
-
 
 
     public static <T> Result<T> ok(T d) {
